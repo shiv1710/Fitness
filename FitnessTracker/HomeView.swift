@@ -56,8 +56,7 @@ struct HomeView: View {
                         }
                     }
                     Spacer()
-                    
-                    
+                
                     ZStack{
                         ProgressCircleView(progress: $calories, goal: 600, color: .red)
                         
@@ -71,8 +70,7 @@ struct HomeView: View {
                     
                     Spacer()
                 }
-                
-                padding()
+                .padding()
             }
         }
     }
