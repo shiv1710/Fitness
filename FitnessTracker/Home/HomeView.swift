@@ -12,6 +12,17 @@ struct HomeView: View {
     @State var active: Int = 52
     @State var stand: Int = 8
     
+    var mockActivities = [
+        Activity(id: 0, title: "Today's Step", subtitle: "Goal 12,000", image: "figure.walk", tinColor: .green, amount: "9812"),
+        
+        Activity(id: 1, title: "Today's Step", subtitle: "Goal 1,000", image: "figure.walk", tinColor: .red, amount: "9812"),
+        
+        Activity(id: 2, title: "Today's Step", subtitle: "Goal 12,000", image: "figure.walk", tinColor: .blue, amount: "9812"),
+        
+        Activity(id: 3, title: "Today's Step", subtitle: "Goal 12,000", image: "figure.walk", tinColor: .purple, amount: "9812")
+        
+    ]
+    
     
     var body: some View {
         ScrollView(showsIndicators: false){
@@ -91,11 +102,20 @@ struct HomeView: View {
                     
                 }
                 .padding(.horizontal)
+                
+                LazyVGrid(columns: Array(repeating: GridItem(spacing: 20), count: 2)){
+                   
+                    ForEach(mockActivities, id: \.id) { activity in ActivityCard(activity: activity)
+                }
+                .padding(.horizontal)
             }
         }
     }
 }
 
-#Preview {
-    HomeView()
+    struct HomeView_Previews: PreviewProvider{
+        static var previews: some View {
+            HomeView()
+        }
+    }
 }
