@@ -26,6 +26,7 @@ struct FitnessTabView: View {
                 .tabItem{
                     Image(systemName: "house")
                 }
+            
             HistoricView()
                 .tag("Historic")
                 .tabItem{
